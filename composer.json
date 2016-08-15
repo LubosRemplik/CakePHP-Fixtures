@@ -1,0 +1,24 @@
+{
+    "name": "lubos/fixtures",
+    "type": "cakephp-plugin",
+    "description": "CakePHP Fixtures plugin to read fixtures and creating tables with data from tests",
+    "keywords": ["cakephp", "fixture", "db", "plugin"],
+    "homepage": "https://github.com/LubosRemplik/CakePHP-Fixtures",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lubos Remplik",
+            "homepage": "http://lubos.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "cakephp/plugin-installer": "*",
+        "cakephp/cakephp": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fixtures\\": "src"
+        }
+    }
+}
