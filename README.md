@@ -16,7 +16,7 @@ composer require lubos/fixtures
 
 Load plugin in bootstrap.php file
 
-```php
+```
 bin/cake plugin load Fixtures
 ```
 
@@ -26,10 +26,12 @@ run `bin/cake` to see shells and its options
 
 Examples:  
 ```
+bin/cake fixtures createTable "Fixtures\Fixture\UsersFixture"
+bin/cake fixtures createTable "Fixtures\Fixture\CategoriesFixture"
+bin/cake fixtures createTable "Fixtures\Fixture\ProductsFixture"
+bin/cake fixtures createTable "Fixtures\Fixture\ArticlesFixture"
+
 bin/cake fixtures insert "Fixtures\Fixture\UsersFixture"
-bin/cake fixtures insert "Fixtures\Fixture\CategoriesFixture"
-bin/cake fixtures insert "Fixtures\Fixture\ProductsFixture"
-bin/cake fixtures insert "Fixtures\Fixture\ArticlesFixture"
 ```
 
 ## Bugs & Features
