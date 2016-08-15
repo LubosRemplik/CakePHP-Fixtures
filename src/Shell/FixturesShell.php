@@ -30,6 +30,12 @@ class FixturesShell extends Shell
                         'fixture' => [
                             'required' => true
                         ],
+                    ],
+                    'options' => [
+                        'table' => [
+                            'short' => 't',
+                            'help' => 'Target table (default: fixture table name)'
+                        ]
                     ]
                 ]
             ])
@@ -39,6 +45,12 @@ class FixturesShell extends Shell
                     'arguments' => [
                         'fixture' => [
                             'required' => true
+                        ]
+                    ],
+                    'options' => [
+                        'table' => [
+                            'short' => 't',
+                            'help' => 'Target table (default: fixture table name)'
                         ]
                     ]
                 ]
@@ -75,7 +87,11 @@ class FixturesShell extends Shell
                 $fields[$key] = $value;
             }
         }
-        $table = new Table($object->table, $fields);
+        $tableName = $object->table;
+        if (!empty($this->params['table'])) {
+            $tableName = $this->params['table'];
+        }
+        $table = new Table($tableName, $fields);
         if (!empty($object->fields['_constraints'])) {
             foreach ($object->fields['_constraints'] as $name => $attrs) {
                 $table->addConstraint($name, $attrs);
@@ -92,7 +108,7 @@ class FixturesShell extends Shell
                 $this->error('Statement error.');
             }
         }
-        $this->out(sprintf('Table %s created.', $object->table));
+        $this->out(sprintf('Table %s created.', $tableName));
 
         return true;
     }
@@ -106,7 +122,11 @@ class FixturesShell extends Shell
     public function insert($fixture)
     {
         $object = new $fixture();
-        $table = TableRegistry::get($object->table);
+        $tableName = $object->table;
+        if (!empty($this->params['table'])) {
+            $tableName = $this->params['table'];
+        }
+        $table = TableRegistry::get($tableName);
         if (empty($object->records)) {
             $this->error('No records found in fixture');
         }
