@@ -59,6 +59,11 @@ class FixturesShell extends Shell
         return $parser;
     }
 
+    /**
+     * Method: initialize
+     *
+     * @return void
+     */
     public function initialize()
     {
         $this->db = ConnectionManager::get('default');
