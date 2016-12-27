@@ -59,6 +59,11 @@ class FixturesShell extends Shell
         return $parser;
     }
 
+    public function initialize()
+    {
+        $this->db = ConnectionManager::get('default');
+    }
+
     /**
      * main() method.
      *
@@ -79,7 +84,6 @@ class FixturesShell extends Shell
      */
     public function createTable($fixture)
     {
-        $db = ConnectionManager::get('default');
         $object = new $fixture();
         $fields = [];
         foreach ($object->fields as $key => $value) {
@@ -102,9 +106,9 @@ class FixturesShell extends Shell
                 $table->addIndex($name, $attrs);
             }
         }
-        $sql = $table->createSql($db);
+        $sql = $table->createSql($this->db);
         foreach ($sql as $stmt) {
-            if (!$db->execute($stmt)) {
+            if (!$this->db->execute($stmt)) {
                 $this->error('Statement error.');
             }
         }
@@ -126,7 +130,7 @@ class FixturesShell extends Shell
         if (!empty($this->params['table'])) {
             $tableName = $this->params['table'];
         }
-        $table = TableRegistry::get($tableName);
+        $table = TableRegistry::get($tableName, ['connection' => $this->db]);
         if (empty($object->records)) {
             $this->error('No records found in fixture');
         }
