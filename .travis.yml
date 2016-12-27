@@ -7,23 +7,19 @@ php:
 env:
   global:
     - DEFAULT=1
-
-matrix:
-  include:
-  - php: 5.6 
-    env: PHPCS=1 DEFAULT=0
-  - php: 7.0
-    env: PHPCS=1 DEFAULT=0
+    - PHPCS=1
 
 install:
   - composer self-update
-  - composer install --prefer-dist --no-interaction --dev
+  - composer install --prefer-dist --no-interaction
 
 before_script:
   - sh -c "if [ '$PHPCS' = '1' ]; then composer require cakephp/cakephp-codesniffer:dev-master; fi"
   - phpenv rehash
+  - cp phpunit.xml.dist phpunit.xml
 
 script:
+  - sh -c "if [ '$DEFAULT' = '1' ]; then phpunit; fi"
   - sh -c "if [ '$PHPCS' = '1' ]; then ./vendor/bin/phpcs -p --extensions=php --standard=vendor/cakephp/cakephp-codesniffer/CakePHP ./src; fi"
 
 notifications:

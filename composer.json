@@ -20,5 +20,10 @@
         "psr-4": {
             "Fixtures\\": "src"
         }
-    }
+    },
+	"autoload-dev": {
+        "psr-4": {
+            "Fixtures\\Test\\": "tests"
+        }
+	}
 }
