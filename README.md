@@ -41,3 +41,4 @@ Please follow few rules:
 - Fork & clone
 - Code bugfix or feature
 - Follow [CakePHP coding standards](https://github.com/cakephp/cakephp-codesniffer)
+- Unit tests
