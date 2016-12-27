@@ -1,17 +1,17 @@
 # CakePHP Fixtures
 
 [![Build Status](https://travis-ci.org/LubosRemplik/CakePHP-Fixtures.svg)](https://travis-ci.org/LubosRemplik/CakePHP-Fixtures)
-[![Latest Stable Version](https://poser.pugx.org/lubos/fixtures/v/stable.svg)](https://packagist.org/packages/lubos/fixtures) 
-[![Total Downloads](https://poser.pugx.org/lubos/fixtures/downloads.svg)](https://packagist.org/packages/lubos/fixtures) 
-[![Latest Unstable Version](https://poser.pugx.org/lubos/fixtures/v/unstable.svg)](https://packagist.org/packages/lubos/fixtures) 
-[![License](https://poser.pugx.org/lubos/fixtures/license.svg)](https://packagist.org/packages/lubos/fixtures)
+[![Latest Stable Version](https://poser.pugx.org/lubos/cakephp-fixtures/v/stable.svg)](https://packagist.org/packages/lubos/cakephp-fixtures) 
+[![Total Downloads](https://poser.pugx.org/lubos/cakephp-fixtures/downloads.svg)](https://packagist.org/packages/lubos/cakephp-fixtures) 
+[![Latest Unstable Version](https://poser.pugx.org/lubos/cakephp-fixtures/v/unstable.svg)](https://packagist.org/packages/lubos/cakephp-fixtures) 
+[![License](https://poser.pugx.org/lubos/cakephp-fixtures/license.svg)](https://packagist.org/packages/lubos/cakephp-fixtures)
 
 CakePHP Fixtures plugin to read fixtures and creating tables with data from tests.
 
 ## Installation & Configuration
 
 ```
-composer require lubos/fixtures
+composer require lubos/cakephp-fixtures
 ```
 
 Load plugin in bootstrap.php file
