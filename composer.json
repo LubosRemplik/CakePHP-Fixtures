@@ -1,5 +1,5 @@
 {
-    "name": "lubos/fixtures",
+    "name": "lubos/cakephp-fixtures",
     "type": "cakephp-plugin",
     "description": "CakePHP Fixtures plugin to read fixtures and creating tables with data from tests",
     "keywords": ["cakephp", "fixture", "db", "plugin"],
